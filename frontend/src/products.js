@@ -35,7 +35,7 @@ const products = [
     category: 'Electronics',
     price: 929.99,
     countInStock: 5,
-    rating: 3,
+    rating: 2.5,
     numReviews: 12,
   },
   {
@@ -74,7 +74,7 @@ const products = [
     category: 'Electronics',
     price: 29.99,
     countInStock: 0,
-    rating: 4,
+    rating: 0.5,
     numReviews: 12,
   },
 ]

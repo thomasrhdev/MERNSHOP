@@ -1,3 +1,21 @@
 main {
   min-height: 80vh;
 }
+
+h3 {
+  padding: 1rem 0;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+.goodRating {
+  color: #5f912d;
+}
+.avgRating {
+  color: #b6981c;
+}
+.badRating {
+  color: #d62017;
+}
