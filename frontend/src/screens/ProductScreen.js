@@ -15,8 +15,9 @@ const ProductScreen = ({ match }) => {
       setIsLoading(false)
     }
 
+    // testing again
     fetchProduct()
-  }, [])
+  }, [match])
 
   return isLoading ? (
     <h1>Loading please wait</h1>
