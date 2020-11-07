@@ -19,6 +19,11 @@ app.get('/api/products/:id', (req, res) => {
   res.json(product)
 })
 
+// Just testing parameters
+// app.get('/api/test/:name/:age', (req, res) => {
+//   res.send(`Name: ${req.params.name} is ${req.params.age} years old`)
+// })
+
 const PORT = process.env.PORT || 5000
 
 app.listen(
