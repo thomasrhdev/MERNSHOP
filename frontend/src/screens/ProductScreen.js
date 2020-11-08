@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import Rating from '../components/Rating'
+import { listProductDetails } from '../actions/productActions.js'
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap'
-import axios from 'axios'
+import Message from '../components/Message.js'
+import Loader from '../components/Loader.js'
 
 const ProductScreen = ({ match }) => {
-  const [product, setProduct] = useState({})
-  const [isLoading, setIsLoading] = useState(true)
+  const dispatch = useDispatch()
+  const productDetails = useSelector((state) => state.productDetails)
+  const { loading, error, product } = productDetails
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      const { data } = await axios.get(`/api/products/${match.params.id}`)
-      setProduct(data)
-      setIsLoading(false)
-    }
+    dispatch(listProductDetails(match.params.id))
+  }, [dispatch, match])
 
-    // testing again
-    fetchProduct()
-  }, [match])
-
-  return isLoading ? (
-    <h1>Loading please wait</h1>
+  return loading ? (
+    <Loader />
+  ) : error ? (
+    <Message variant='danger'>{error}</Message>
   ) : (
     <>
       <Link className='btn btn-light my-3' to='/'>
